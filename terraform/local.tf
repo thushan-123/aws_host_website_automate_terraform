@@ -1,12 +1,16 @@
 locals {
-  rendered_html = templatefile("${path.module}/../src/index.html.tpl")
+  rendered_html = templatefile("${path.module}/../src/index.html.tpl", {
+    developer = var.developer
+  })
 
   ec2_user_data = <<-EOF
     #!/bin/bash
-    apt update -y
-    apt install -y apache2
+    yum update -y
+    yum install -y httpd
+    systemctl enable httpd
+    systemctl start httpd
+
     echo '${replace(local.rendered_html, "'", "'\"'\"'")}' > /var/www/html/index.html
-    systemctl enable apache2
-    systemctl start apache2
   EOF
 }
+

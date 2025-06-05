@@ -14,3 +14,9 @@ variable "key_name" {
   description = "EC2 Instence key-pare name"
   type = string
 }
+
+variable "developer" {
+  description = "Developer Name"
+  default = "Thush"
+  type = string
+}

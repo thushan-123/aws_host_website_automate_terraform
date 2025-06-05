@@ -38,7 +38,7 @@ resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.thush_virtual_network.id
 
   route  {
-    cidr_block = "0.0.0.0/16"
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.main_internet_gateway.id
   }
 

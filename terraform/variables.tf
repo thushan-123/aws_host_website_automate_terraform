@@ -9,3 +9,8 @@ variable "ami_id" {
   description = "Amazon Machine Image ID"
   default = ""
 }
+
+variable "key_name" {
+  description = "EC2 Instence key-pare name"
+  type = string
+}

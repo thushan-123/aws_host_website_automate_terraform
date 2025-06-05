@@ -11,7 +11,12 @@ terraform {
   }
 }
 
+locals {
+  rendered_html = templatefile("${path.module}/../src/index.html.tpl")
+}
+
 
 provider "aws" {
   region = var.aws_region_name   # get to the variable file name
 }
+

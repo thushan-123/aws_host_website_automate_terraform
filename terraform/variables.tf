@@ -13,6 +13,7 @@ variable "ami_id" {
 variable "key_name" {
   description = "EC2 Instence key-pare name"
   type = string
+  default = "value"
 }
 
 variable "developer" {

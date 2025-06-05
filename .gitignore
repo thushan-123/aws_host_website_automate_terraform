@@ -1,2 +1,3 @@
 acc.txt
 terraform/.terraform/*
+terraform/thush-key.pem

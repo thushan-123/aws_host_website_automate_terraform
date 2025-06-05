@@ -1,13 +1,13 @@
 variable "aws_region_name" {
     description = "AWS region to deploy"
-    default = "us-west-01"
+    default = "us-east-01"
     type = string
 }
 
 
 variable "ami_id" {
   description = "Amazon Machine Image ID"
-  default = ""
+  default = "ami-02457590d33d576c3"      # AMI ID Amazon linux machine image
 }
 
 variable "key_name" {

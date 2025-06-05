@@ -1,6 +1,6 @@
 variable "aws_region_name" {
     description = "AWS region to deploy"
-    default = "us-east-01"
+    default = "us-east-1"
     type = string
 }
 

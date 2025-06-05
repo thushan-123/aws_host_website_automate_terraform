@@ -1,5 +1,9 @@
 resource "aws_vpc" "thush_virtual_network" {
     cidr_block = "10.0.0.0/16"
+    
+    tags = {
+      Name = "thush_virtual_network"
+    }
 }
 
 # line 1 ->3 create a new Virtual Private Cloud : thush_virtual_network
@@ -10,6 +14,10 @@ resource "aws_subnet" "it_department_subnet" {
   vpc_id = aws_vpc.thush_virtual_network.id
   cidr_block = "10.0.1.0/24"
   map_public_ip_on_launch = true
+  
+  tags = {
+    Name = "IT Department sub network"
+  }
 }
 
 
@@ -17,6 +25,10 @@ resource "aws_subnet" "it_department_subnet" {
 
 resource "aws_internet_gateway" "main_internet_gateway" {
     vpc_id = aws_vpc.thush_virtual_network.id
+
+    tags = {
+      Name = "Network GW"
+    }
 }
 
 
@@ -28,6 +40,10 @@ resource "aws_route_table" "public_rt" {
   route  {
     cidr_block = "0.0.0.0/16"
     gateway_id = aws_internet_gateway.main_internet_gateway.id
+  }
+
+  tags = {
+    Name = "IT Department Routing table"
   }
 
 }

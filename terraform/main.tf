@@ -13,7 +13,6 @@ terraform {
 
 
 
-
 provider "aws" {
   region = var.aws_region_name   # get to the variable file name
 }
